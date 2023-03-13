@@ -14,18 +14,48 @@
       <div class="grid grid-cols-4 gap-4">
         {% for post in posts_list %}
         <div
-          class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+          class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
         >
-          <span
-            class="text-5xl font-extrabold tracking-tight text-white border-red-500 border-separate border-b"
-            >{{forloop.counter}}~</span
-          >
-          <h1 class="text-2xl mt-5 font-bold text-slate-200">{{post.text}}</h1>
-          <p class="text-slate-200">{{post.desc}}</p>
+          <img src="{{post.blog_image}}" alt="image" class="rounded-t-lg" />
+
+          <div class="p-5 pt-0">
+            <div class="flex mt-4 space-x-2 mb-4 md:mt-6">
+              <img
+                src="{{post.author_image.url}}"
+                class="w-10 h-10 rounded-full shadow-lg"
+                alt="author"
+              />
+              <p
+                class="inline-flex px-1 items-center text-sm font-medium text-center text-white"
+              >
+                {{post.author}}
+              </p>
+            </div>
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              {{post.text}}
+            </h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              {{post.desc}}
+            </p>
+            {% comment %}
+            <span
+              class="text-5xl font-extrabold tracking-tight text-white border-red-500 border-separate border-b"
+              >{{forloop.counter}}~</span
+            >
+            {% endcomment %}
+
+            <div class="flex mt-8">
+              <p class="text-sm text-gray-900 dark:text-white">created at:</p>
+              <span class="text-sm px-3 text-gray-900 dark:text-white">
+                {{post.created_at}}
+              </span>
+            </div>
+          </div>
         </div>
         {% endfor %}
       </div>
     </div>
-    {% load static tailwind_tags %}
   </body>
 </html>

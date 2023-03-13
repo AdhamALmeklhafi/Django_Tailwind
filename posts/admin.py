@@ -3,4 +3,8 @@ from .models import Posts
 
 
 # Register your models here.
-admin.site.register(Posts)
+class PostsAdmin(admin.ModelAdmin):
+    readonly_fields = ("id",)
+
+
+admin.site.register(Posts, PostsAdmin)
