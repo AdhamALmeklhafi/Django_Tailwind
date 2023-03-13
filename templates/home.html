@@ -14,9 +14,15 @@
       <div class="grid grid-cols-4 gap-4">
         {% for post in posts_list %}
         <div
-          class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"
         >
-          <img src="{{post.blog_image}}" alt="image" class="rounded-t-lg" />
+          <div class="grid gap-6 mb-8 md:grid-cols-1 xl:grid-cols-1">
+            <img
+              src="{{post.blog_image}}"
+              alt="image"
+              class="rounded-t-lg object-cover h-48 w-full rounded-md"
+            />
+          </div>
 
           <div class="p-5 pt-0">
             <div class="flex mt-4 space-x-2 mb-4 md:mt-6">
@@ -45,11 +51,10 @@
               >{{forloop.counter}}~</span
             >
             {% endcomment %}
-
             <div class="flex mt-8">
               <p class="text-sm text-gray-900 dark:text-white">created at:</p>
               <span class="text-sm px-3 text-gray-900 dark:text-white">
-                {{post.created_at}}
+                {{post.created_at|date:"F d, Y"}}
               </span>
             </div>
           </div>
