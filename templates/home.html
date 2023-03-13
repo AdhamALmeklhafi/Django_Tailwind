@@ -1,4 +1,5 @@
 {% load static tailwind_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,25 +9,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     {% tailwind_css %}
   </head>
-
-  <body class="bg-red-50 font-serif leading-normal tracking-normal">
-    <div class="grid grid-cols-4 gap-4">
-      {% for post in posts_list %}
-
-      <a href="#">
-        <h5
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-emerald-300"
+  <body class="bg-slate-200">
+    <div class="container mx-auto pt-10">
+      <div class="grid grid-cols-4 gap-4">
+        {% for post in posts_list %}
+        <div
+          class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
         >
-          {{ forloop.counter }} {{post.text}}
-        </h5>
-      </a>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-        {{post.desc}}
-      </p>
-
-      {% endfor %}
+          <span
+            class="text-5xl font-extrabold tracking-tight text-white border-red-500 border-separate border-b"
+            >{{forloop.counter}}~</span
+          >
+          <h1 class="text-2xl mt-5 font-bold text-slate-200">{{post.text}}</h1>
+          <p class="text-slate-200">{{post.desc}}</p>
+        </div>
+        {% endfor %}
+      </div>
     </div>
-
     {% load static tailwind_tags %}
   </body>
 </html>
