@@ -1,0 +1,32 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Django Tailwind</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    {% tailwind_css %}
+  </head>
+
+  <body class="bg-red-50 font-serif leading-normal tracking-normal">
+    <div class="grid grid-cols-4 gap-4">
+      {% for post in posts_list %}
+
+      <a href="#">
+        <h5
+          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-emerald-300"
+        >
+          {{ forloop.counter }} {{post.text}}
+        </h5>
+      </a>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        {{post.desc}}
+      </p>
+
+      {% endfor %}
+    </div>
+
+    {% load static tailwind_tags %}
+  </body>
+</html>
