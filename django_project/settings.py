@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "posts.apps.PostsConfig",
-    "tailwind",
     "theme",
     "django_browser_reload",
+    "tailwind",
 ]
 
 MIDDLEWARE = [
